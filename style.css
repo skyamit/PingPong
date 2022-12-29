@@ -1,0 +1,46 @@
+:root{
+    --height:500px;
+}
+body{
+    height: var(--height);
+}
+.h100{
+    border:solid;
+    width:100%;
+    border-width: 1px;
+    height: var(--height);
+    overflow: hidden;
+}
+
+#outer{
+    position: relative;
+}
+
+#top{
+    position: absolute;
+    top:0px;
+}
+
+#bottom{
+    position: absolute;
+    bottom: 0px;
+}
+
+.move{
+    background-color: rgb(9, 0, 184);
+    height:10px;
+    width:100px;
+    border:solid;
+    border-radius: 5px;;
+}
+
+#ball{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border:solid;
+    border-width: 1px;
+    border-radius: 50%;
+    top:300px;
+    background-color: rgb(77, 228, 7);
+}
