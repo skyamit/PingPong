@@ -4,6 +4,10 @@
 body{
     height: var(--height);
 }
+
+main {
+    background-color: #F9D030;   
+}
 .h100{
     border:solid;
     width:100%;
