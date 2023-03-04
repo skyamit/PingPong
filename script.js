@@ -20,7 +20,7 @@ function start() {
     left_div.hidden = false;
     right_div.hidden = false;
 
-    ball.style.top = '50%'; 
+    ball.style.top = '40%'; 
     ball.style.left = '50%';
     playing = true;
     setInterval(moveBall, 100);
