@@ -3,6 +3,28 @@ var height = outer.clientHeight - 20 ;
 var width = outer.clientWidth - 20;
 var distance = 50;
 var score = 0;
+var ball = document.getElementById("ball");
+var start_div = document.getElementById("start");
+var left_div = document.getElementById("left");
+var right_div = document.getElementById("right");
+var score_div = document.getElementById("score");
+
+left_div.hidden = true;
+right_div.hidden = true;
+var playing = false;
+
+function start() {
+    score = 0;
+    score_div.innerText = "Score : "+score;
+    start_div.hidden = true;
+    left_div.hidden = false;
+    right_div.hidden = false;
+
+    ball.style.top = '50%'; 
+    ball.style.left = '50%';
+    playing = true;
+    setInterval(moveBall, 100);
+}
 
 document.addEventListener('keydown',function handle(event){
     var code = event.key;
@@ -32,36 +54,34 @@ function left(){
     }
 }
 
-setInterval(moveBall, 100);
-
 var t = 1;
 var l = 1;
 var speed = 10;
+var ball = document.getElementById("ball");
 function moveBall(){
-    var ball = document.getElementById("ball");
-    // left wall touched
-    if(ball.offsetLeft == 0){
+    if(playing === false) {
+        return;
+    }
+
+    score_div.innerText = "Score : "+score;
+
+    if(ball.offsetLeft <= 0){
         l = 0;
     }
+    if(ball.offsetLeft >= width){
+        l = 1;
+    }
     // top wall touched
-    if(ball.offsetTop == 0){
+    if(ball.offsetTop <= 0){
         t = 0;
         var m = document.getElementById('top').offsetLeft;
         var left = ball.offsetLeft;
-        console.log(left, m, m+100, m<=left, left>=m+100);
+
         if(m<=left && left<=m+100){
             score++;
         }
         else{
-            console.log(localStorage.getItem("score"));
-            if(localStorage.getItem("score") == null || localStorage.getItem("score") > score){
-                alert("Game Over !! Your score is highest ever "+score);
-                localStorage.setItem("score",score);
-            }
-            else{
-                alert("game Over!!"+ " Your score is "+score);
-                score = 0;
-            }
+            game_over();
         }
     }
     // bottom wall touched
@@ -69,25 +89,13 @@ function moveBall(){
         t = 1;
         var m = document.getElementById('bottom').offsetLeft;
         var left = ball.offsetLeft;
-        console.log(left, m, m+100, m<=left, left>=m+100);
+
         if(m<=left && left<=m+100){
             score++;
         }
         else{
-            console.log(localStorage.getItem("score"));
-            if(localStorage.getItem("score") == null || localStorage.getItem("score") > score){
-                alert("Game Over !! Your score is highest ever "+score);
-                localStorage.setItem("score",score);
-            }
-            else{
-                alert("game Over!!"+ " Your score is "+score);
-                score = 0;
-            }
+            game_over();
         }
-    }
-    // right wall touched
-    if(ball.offsetLeft >= width){
-        l = 1;
     }
 
     if(t === 1 && l == 1){
@@ -109,3 +117,12 @@ function moveBall(){
 }
 
 moveBall();
+
+function game_over() {
+    playing = false;
+    start_div.innerText = "Game Over!! Play again."
+    start_div.hidden = false;
+    left_div.hidden = true;
+    right_div.hidden = true;
+    console.log("Game Over");
+}

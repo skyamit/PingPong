@@ -5,15 +5,21 @@ body{
     height: var(--height);
 }
 
-main {
-    background-color: #F9D030;   
+body {
+    background-color: #000000;   
+}
+
+.board {
+    width:800px;
+    max-width: 100%;
 }
 .h100{
-    border:solid;
     width:100%;
-    border-width: 1px;
     height: var(--height);
+    background-color: black;
     overflow: hidden;
+    border-color: white;
+    border-style: dashed solid;
 }
 
 #outer{
@@ -31,20 +37,50 @@ main {
 }
 
 .move{
-    background-color: rgb(9, 0, 184);
+    background-color: rgb(255, 255, 255);
     height:10px;
     width:100px;
     border:solid;
-    border-radius: 5px;;
+    border-color: white;
 }
 
 #ball{
     position: absolute;
     height: 20px;
     width: 20px;
-    border:solid;
-    border-width: 1px;
     border-radius: 50%;
-    top:300px;
-    background-color: rgb(77, 228, 7);
+    top:50%;
+    left: 50%;
+    background-color: rgb(255, 255, 255);
+}
+
+h3,h5{
+    margin:0px;
+    margin-top:20px;
+    text-align: center;
+    font-family: monospace;
+    color: white;
+    font-weight: bolder;
+}
+
+.btn {
+    text-align: center;
+    width:100px;
+    border : solid;
+    border-color: white;
+    color:white;
+}
+.btn:hover {
+    border : solid;
+    border-color: white;
+    color:white;
+    font-weight: bold;
+}
+
+.center{
+    margin-top:40%;
+    margin-left:15%;
+}
+#start {
+    width:70%;
 }

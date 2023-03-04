@@ -11,20 +11,22 @@
 <body>
 
     <main class="container-fluid">
-        <section class="container section p-5">
-            <div class="h100 bg-info" id="outer">
+        <h3>Ping Poll</h3>
+        <h5 id = "score">Score : 0</h5>
+        <section class="container section p-5 board">
+            <div class="h100" id="outer">
                 <div id="top" class="move">
                 </div>
                 <div id="bottom" class="move">
                 </div>
                 <div id="ball">
-
                 </div>
+                <button class='center btn' id="start" onclick="start()">Start</button>
             </div>
         </section>
         <section class="text-center">
-            <button class='btn btn-info m-2' onclick="left()">Left</button>
-            <button class='btn btn-info m-2' onclick="right()">Right</button>
+            <button class='btn' id="left" onclick="left()">Left</button>
+            <button class='btn' id="right" onclick="right()">Right</button>
         </section>
 
     </main>
